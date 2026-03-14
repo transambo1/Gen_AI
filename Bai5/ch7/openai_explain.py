@@ -17,7 +17,7 @@ def get_user_prompt(path: str, line: str) -> str:
 if __name__ == "__main__":
     # 1. ĐÃ SỬA: Thêm api_key và chỉnh lại lề thẳng hàng
     client = OpenAI(
-        api_key="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", 
+        api_key=("GROQ_API_KEY"), 
         base_url="https://api.groq.com/openai/v1"
     )
     

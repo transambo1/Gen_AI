@@ -2,7 +2,7 @@ from openai import OpenAI
 
 # 1. Khởi tạo kết nối với Groq (Dùng lại key cũ của bạn)
 client = OpenAI(
-    api_key="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", 
+    api_key=("GROQ_API_KEY"), 
     base_url="https://api.groq.com/openai/v1"
 )
 
