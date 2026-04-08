@@ -1,8 +1,8 @@
-package com.hdbank.product_service.controller;
+package com.com.hdbank.product_service.controller;
 
-import com.hdbank.product_service.dto.ProductRequest;
-import com.hdbank.product_service.model.Product;
-import com.hdbank.product_service.repository.ProductRepository;
+import com.com.hdbank.product_service.dto.ProductRequest;
+import com.com.hdbank.product_service.model.Product;
+import com.com.hdbank.product_service.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

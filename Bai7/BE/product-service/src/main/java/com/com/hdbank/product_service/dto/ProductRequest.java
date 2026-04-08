@@ -1,4 +1,4 @@
-package com.hdbank.product_service.dto;
+package com.com.hdbank.product_service.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

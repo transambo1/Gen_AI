@@ -1,6 +1,6 @@
-package com.hdbank.product_service.repository;
+package com.com.hdbank.product_service.repository;
 
-import com.hdbank.product_service.model.Product;
+import com.com.hdbank.product_service.model.Product;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface ProductRepository extends MongoRepository<Product, String> {

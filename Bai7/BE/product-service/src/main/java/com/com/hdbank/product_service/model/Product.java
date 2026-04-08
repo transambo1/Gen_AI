@@ -1,4 +1,4 @@
-package com.hdbank.product_service.model;
+package com.com.hdbank.product_service.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
