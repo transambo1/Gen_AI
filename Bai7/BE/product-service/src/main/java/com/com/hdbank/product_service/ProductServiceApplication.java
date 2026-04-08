@@ -1,4 +1,4 @@
-package com.hdbank.product_service;
+package com.com.hdbank.product_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
