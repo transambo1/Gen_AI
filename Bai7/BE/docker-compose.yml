@@ -20,7 +20,18 @@ services:
       - "27017:27017"
     networks:
       - app-network
-
+  #sql
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: order_db
+      MYSQL_ROOT_PASSWORD: your_password
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
   #Prometheus
   prometheus:
     image: prom/prometheus
@@ -54,7 +65,7 @@ services:
       - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
       - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=PLAINTEXT
     volumes:
-      - F:/Docker/Kafka/kafka-data/volume1:/bitnami/kafka
+      - ./data/kafka-1:/bitnami/kafka
     networks:
       - app-network
 
@@ -74,7 +85,7 @@ services:
       - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
       - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=PLAINTEXT
     volumes:
-      - F:/Docker/Kafka/kafka-data/volume2:/bitnami/kafka
+      - ./data/kafka-2:/bitnami/kafka
     networks:
       - app-network
 
@@ -94,7 +105,7 @@ services:
       - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
       - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=PLAINTEXT
     volumes:
-      - F:/Docker/Kafka/kafka-data/volume3:/bitnami/kafka
+      - ./data/kafka-3:/bitnami/kafka
     networks:
       - app-network
 
@@ -187,12 +198,12 @@ services:
       - kafka-ui
       - product-service
     environment:
-      - SPRING_DATA_REDIS_HOST=redis
-      - SPRING_DATA_REDIS_PORT=6379
-      - EUREKA_SERVER_URL=http://eureka-server:8761/eureka/
-      - ZIPKIN_URL=http://zipkin:9411/api/v2/spans
-      - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/database
-      - KAFKA_BOOTSTRAP_SERVERS=kafka-1:9092,kafka-2:9094,kafka-3:9096
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/order_db
+        - SPRING_DATASOURCE_USERNAME=root
+        - SPRING_DATASOURCE_PASSWORD=your_password
+        - EUREKA_SERVER_URL=http://eureka-server:8761/eureka/
+        - KAFKA_BOOTSTRAP_SERVERS=kafka-1:9092,kafka-2:9094,kafka-3:9096
+        - ZIPKIN_URL=http://zipkin:9411/api/v2/spans
 #Notification-service
   notification-service:
     image: notification-service
